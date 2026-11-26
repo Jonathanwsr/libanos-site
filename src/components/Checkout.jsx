@@ -105,7 +105,7 @@ export default function Checkout({ cart, subtotal, changeQty, removeLine, clearC
           <ul className="cart-list">
             {cart.map((l) => (
               <li key={l.key}>
-                <span className="cart-emoji" aria-hidden>{l.produto.emoji}</span>
+                <img className="cart-photo" src={`/img/${l.produto.id}.jpg`} alt="" />
                 <span className="cart-text">
                   <strong>{l.produto.nome}</strong>
                   {l.obs && <small>Obs.: {l.obs}</small>}

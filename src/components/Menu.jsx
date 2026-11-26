@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { CATEGORIAS, PRODUTOS, LOJA, brl } from '../data/menu.js'
 import ProductModal from './ProductModal.jsx'
+import { CREDITOS } from '../data/creditos.js'
 
 const normalizar = (s) =>
   s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -145,9 +146,7 @@ export default function Menu({ onAdd, lastOrder, onRepeat, currentOrder, go }) {
               {itens.map((p) => (
                 <li key={p.id} className="product">
                   <button className="product-body" onClick={() => setProdutoAberto(p)}>
-                    <span className="product-photo" aria-hidden>
-                      {p.emoji}
-                    </span>
+                    <img className="product-photo" src={`/img/${p.id}.jpg`} alt="" loading="lazy" />
                     <span className="product-text">
                       <strong>{p.nome}</strong>
                       <small>{p.descricao}</small>
@@ -168,7 +167,7 @@ export default function Menu({ onAdd, lastOrder, onRepeat, currentOrder, go }) {
         )
       })}
 
-      <p className="menu-footnote">Preços e itens ilustrativos para demonstração do protótipo.</p>
+      <p className="menu-footnote">Preços e itens ilustrativos para demonstração do protótipo. Fotos meramente ilustrativas.</p>
 
       <section className="tcc-box">
         <h3>Melhorias propostas no TCC aplicadas neste protótipo</h3>
@@ -185,6 +184,17 @@ export default function Menu({ onAdd, lastOrder, onRepeat, currentOrder, go }) {
           — Jailton Gomes de Sousa Junior e Manoel Victor Leite Izídio; orientação: Nélio Fernando da Fonsêca Aguiar e Silva (UNIFACOL, 2026).
         </small>
       </section>
+
+      <details className="credits">
+        <summary>Créditos das fotos (Wikimedia Commons)</summary>
+        <ul>
+          {PRODUTOS.map((p) => CREDITOS[p.id] && (
+            <li key={p.id}>
+              {p.nome}: <a href={`https://commons.wikimedia.org/wiki/File:${encodeURIComponent(CREDITOS[p.id].arquivo)}`} target="_blank" rel="noreferrer">{CREDITOS[p.id].autor}</a> · {CREDITOS[p.id].licenca}
+            </li>
+          ))}
+        </ul>
+      </details>
 
       {produtoAberto && (
         <ProductModal

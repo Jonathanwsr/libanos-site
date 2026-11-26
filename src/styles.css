@@ -1,12 +1,12 @@
 :root {
-  --red: #9c2f2a;
-  --red-dark: #7d221e;
-  --red-soft: #f6e4e1;
-  --cream: #f5ede3;
-  --cream-2: #fbf7f1;
+  --red: #e41e22;
+  --red-dark: #c0161a;
+  --red-soft: #fde6e6;
+  --cream: #f4f5f7;
+  --cream-2: #f4f5f7;
   --ink: #1f1a17;
   --muted: #6b625b;
-  --line: #e6dbcf;
+  --line: #e3e5ea;
   --white: #ffffff;
   --green: #1f8a4c;
   --green-soft: #e3f4ea;
@@ -254,3 +254,18 @@ main.with-cartbar { padding-bottom: 150px; }
 .ch-arrow { color: var(--green); font-size: 13px; font-weight: 600; white-space: nowrap; }
 
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; scroll-behavior: auto !important; } }
+
+/* Fotos dos produtos */
+img.product-photo { object-fit: cover; background: #eee; display: block; }
+img.modal-photo { width: 100%; height: 200px; object-fit: cover; display: block; background: #eee; }
+.cart-photo { width: 52px; height: 52px; border-radius: 10px; object-fit: cover; flex: none; }
+.credits { margin-top: 12px; font-size: 12px; color: var(--muted); }
+.credits summary { cursor: pointer; padding: 6px 0; }
+.credits ul { padding-left: 18px; margin: 4px 0; display: grid; gap: 2px; }
+.credits a { color: inherit; }
+/* Visual mais próximo do original: fundo branco nos cards, fonte sem serifa nos títulos */
+h1, h2, h3, h4, .brand strong { font-family: 'Rubik', 'Segoe UI', system-ui, sans-serif; }
+.app { background: var(--cream); }
+.sticky-nav, .checkout-actions { background: var(--cream); }
+.repeat-cta, .toggle button.on, .option.on, .optin { background: #fff5f5; }
+.product-photo, .modal-photo { background: #eee; }

@@ -7,9 +7,7 @@ export default function ProductModal({ produto, onClose, onAdd }) {
   return (
     <div className="sheet-backdrop" onClick={onClose}>
       <div className="sheet" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
-        <div className="modal-photo" aria-hidden>
-          {produto.emoji}
-        </div>
+        <img className="modal-photo" src={`/img/${produto.id}.jpg`} alt={produto.nome} />
         <h3>{produto.nome}</h3>
         <p>{produto.descricao}</p>
         <p className="price big">{brl(produto.preco)} cada</p>

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Instagram, Search, MessageCircle, Link2, Copy, Share2, Check } from 'lucide-react'
 
 // Proposta: unificar os pontos de entrada com um único link (heurística 4).
 export default function Canais({ go }) {
@@ -21,9 +22,9 @@ export default function Canais({ go }) {
   }
 
   const canais = [
-    { icone: '📸', nome: 'Instagram', onde: 'Link na bio' },
-    { icone: '🔎', nome: 'Google', onde: 'Botão “Pedir online” do perfil da loja' },
-    { icone: '💬', nome: 'WhatsApp', onde: 'Mensagem automática + opção de atendente' },
+    { icone: <Instagram size={22} />, nome: 'Instagram', onde: 'Link na bio' },
+    { icone: <Search size={22} />, nome: 'Google', onde: 'Botão “Pedir online” do perfil da loja' },
+    { icone: <MessageCircle size={22} />, nome: 'WhatsApp', onde: 'Mensagem automática + opção de atendente' },
   ]
 
   return (
@@ -35,10 +36,10 @@ export default function Canais({ go }) {
       </p>
 
       <div className="link-box">
-        <code>{link.replace(/^https?:\/\//, '')}</code>
+        <Link2 size={20} className="link-ico" /><code>{link.replace(/^https?:\/\//, '')}</code>
         <div className="row">
-          <button className="btn btn-primary" onClick={copiar}>{copiado ? '✓ Copiado' : 'Copiar link'}</button>
-          <button className="btn btn-outline" onClick={compartilhar}>Compartilhar</button>
+          <button className="btn btn-primary" onClick={copiar}>{copiado ? <><Check size={16} /> Copiado</> : <><Copy size={16} /> Copiar link</>}</button>
+          <button className="btn btn-outline" onClick={compartilhar}><Share2 size={16} /> Compartilhar</button>
         </div>
       </div>
 
@@ -50,7 +51,7 @@ export default function Canais({ go }) {
               <strong>{c.nome}</strong>
               <small>{c.onde}</small>
             </span>
-            <span className="ch-arrow" aria-hidden>→ mesmo link</span>
+            <span className="ch-arrow" aria-hidden>mesmo link</span>
           </li>
         ))}
       </ul>

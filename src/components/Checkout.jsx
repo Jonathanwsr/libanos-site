@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { BAIRROS, LOJA, brl } from '../data/menu.js'
 import AddressForm from './AddressForm.jsx'
+import { Bike, Store, QrCode, CreditCard, Banknote, ShoppingBag, Plus, Minus, Trash2, Check } from 'lucide-react'
 
 const ETAPAS = ['Sacola', 'Entrega', 'Seus dados', 'Revisar']
 
@@ -12,23 +13,25 @@ const mascaraTel = (v) => {
   return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`
 }
 
-export default function Checkout({ cart, subtotal, changeQty, removeLine, clearCart, savedCustomer, onPlace, go }) {
+export default function Checkout({ cart, subtotal, changeQty, removeLine, clearCart, savedCustomer, onPlace, go, bairroInicial }) {
   const [etapa, setEtapa] = useState(0)
   const [tipo, setTipo] = useState(savedCustomer?.tipo || 'entrega')
-  const [endereco, setEndereco] = useState(savedCustomer?.endereco || {})
+  const [endereco, setEndereco] = useState(() => (savedCustomer?.endereco?.rua ? savedCustomer.endereco : { ...(savedCustomer?.endereco || {}), bairro: savedCustomer?.endereco?.bairro || bairroInicial || '' }))
   const [nome, setNome] = useState(savedCustomer?.nome || '')
   const [telefone, setTelefone] = useState(savedCustomer?.telefone || '')
   const [pagamento, setPagamento] = useState('pix')
   const [troco, setTroco] = useState('')
   const [erros, setErros] = useState({})
 
-  const taxa = tipo === 'entrega' ? BAIRROS.find((b) => b.nome === endereco.bairro)?.taxa ?? null : 0
+  const gratis = subtotal >= LOJA.entregaGratisAcima
+  const taxaBairro = BAIRROS.find((b) => b.nome === endereco.bairro)?.taxa ?? null
+  const taxa = tipo === 'entrega' ? (taxaBairro === null ? null : gratis ? 0 : taxaBairro) : 0
   const total = subtotal + (taxa ?? 0)
 
   if (!cart.length && etapa === 0) {
     return (
       <div className="page empty">
-        <div className="empty-icon" aria-hidden>🛍️</div>
+        <div className="empty-icon" aria-hidden><ShoppingBag size={40} /></div>
         <h2>Sua sacola está vazia</h2>
         <p>Escolha suas esfihas no cardápio e elas aparecem aqui.</p>
         <button className="btn btn-primary" onClick={() => go('')}>Ver cardápio</button>
@@ -90,7 +93,7 @@ export default function Checkout({ cart, subtotal, changeQty, removeLine, clearC
       <ol className="stepper" aria-label="Etapas do pedido">
         {ETAPAS.map((n, i) => (
           <li key={n} className={i < etapa ? 'done' : i === etapa ? 'current' : ''} aria-current={i === etapa ? 'step' : undefined}>
-            <span className="dot">{i < etapa ? '✓' : i + 1}</span>
+            <span className="dot">{i < etapa ? <Check size={14} strokeWidth={3} /> : i + 1}</span>
             <span className="label">{n}</span>
           </li>
         ))}
@@ -105,7 +108,7 @@ export default function Checkout({ cart, subtotal, changeQty, removeLine, clearC
           <ul className="cart-list">
             {cart.map((l) => (
               <li key={l.key}>
-                <img className="cart-photo" src={`/img/${l.produto.id}.jpg`} alt="" />
+                <img className="cart-photo" src={l.produto.imagem} alt="" />
                 <span className="cart-text">
                   <strong>{l.produto.nome}</strong>
                   {l.obs && <small>Obs.: {l.obs}</small>}
@@ -113,17 +116,17 @@ export default function Checkout({ cart, subtotal, changeQty, removeLine, clearC
                 </span>
                 <span className="cart-actions">
                   <span className="qty small">
-                    <button onClick={() => changeQty(l.key, -1)} aria-label="Diminuir">−</button>
+                    <button onClick={() => changeQty(l.key, -1)} aria-label="Diminuir"><Minus size={16} /></button>
                     <span>{l.qtd}</span>
-                    <button onClick={() => changeQty(l.key, 1)} aria-label="Aumentar">+</button>
+                    <button onClick={() => changeQty(l.key, 1)} aria-label="Aumentar"><Plus size={16} /></button>
                   </span>
                   <strong>{brl(l.produto.preco * l.qtd)}</strong>
-                  <button className="link-btn danger" onClick={() => removeLine(l.key)}>Remover</button>
+                  <button className="link-btn danger" onClick={() => removeLine(l.key)} aria-label="Remover item"><Trash2 size={16} /> Remover</button>
                 </span>
               </li>
             ))}
           </ul>
-          <button className="btn btn-ghost" onClick={() => go('')}>+ Adicionar mais itens</button>
+          <button className="btn btn-ghost" onClick={() => go('')}><Plus size={16} /> Adicionar mais itens</button>
           {erros.minimo && <p className="msg msg-erro">{erros.minimo}</p>}
         </section>
       )}
@@ -133,11 +136,11 @@ export default function Checkout({ cart, subtotal, changeQty, removeLine, clearC
           <h2>Como quer receber?</h2>
           <div className="toggle">
             <button className={tipo === 'entrega' ? 'on' : ''} onClick={() => setTipo('entrega')}>
-              🛵 Entrega
+              <Bike size={22} /> Entrega
               <small>{LOJA.tempoEntrega}</small>
             </button>
             <button className={tipo === 'retirada' ? 'on' : ''} onClick={() => setTipo('retirada')}>
-              🏪 Retirar na loja
+              <Store size={22} /> Retirar na loja
               <small>Sem taxa</small>
             </button>
           </div>
@@ -181,7 +184,7 @@ export default function Checkout({ cart, subtotal, changeQty, removeLine, clearC
             {Object.entries(nomePag).map(([k, n]) => (
               <label key={k} className={'option' + (pagamento === k ? ' on' : '')}>
                 <input type="radio" name="pag" checked={pagamento === k} onChange={() => setPagamento(k)} />
-                {k === 'pix' ? '⚡' : k === 'cartao' ? '💳' : '💵'} {n}
+                {k === 'pix' ? <QrCode size={20} /> : k === 'cartao' ? <CreditCard size={20} /> : <Banknote size={20} />} {n}
               </label>
             ))}
           </div>
@@ -233,7 +236,7 @@ export default function Checkout({ cart, subtotal, changeQty, removeLine, clearC
         <div><span>Subtotal</span><span>{brl(subtotal)}</span></div>
         <div>
           <span>Entrega</span>
-          <span>{tipo === 'retirada' ? 'Grátis (retirada)' : taxa === null ? 'Escolha o bairro' : brl(taxa)}</span>
+          <span>{tipo === 'retirada' ? 'Grátis (retirada)' : taxa === null ? 'Escolha o bairro' : gratis ? 'Grátis' : brl(taxa)}</span>
         </div>
         <div className="total"><span>Total</span><span>{brl(total)}</span></div>
       </aside>

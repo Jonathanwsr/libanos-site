@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { CheckCircle2 } from 'lucide-react'
 
 export default function Toast({ toast, onClose }) {
   useEffect(() => {
@@ -10,6 +11,7 @@ export default function Toast({ toast, onClose }) {
   if (!toast) return null
   return (
     <div className="toast" role="status" aria-live="polite" key={toast.id}>
+      {!toast.action && <CheckCircle2 size={18} className="toast-ok" />}
       <span>{toast.msg}</span>
       {toast.action && (
         <button

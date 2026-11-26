@@ -20,6 +20,18 @@ Protótipo acadêmico (React + Vite, sem backend) que aplica as propostas de mel
 Também: indicador de etapas, resumo com total em todas as etapas, "Desfazer" ao remover itens,
 confirmação visual ao adicionar à sacola.
 
+## Páginas
+
+- **Início** – cardápio no layout do site original (banner, categorias, busca, cartões e sacola lateral)
+- **Promoções** – destaques e combos, entrega grátis a partir de R$ 69
+- **Pedidos** – histórico **sem exigir login** (no original é preciso entrar na conta)
+- **Entrar/Cadastrar** – cadastro **opcional**, sem senha: nome e telefone; e-mail e endereço opcionais
+
+## API do cardápio
+
+Os produtos (nome, descrição, preço, imagem, crédito da foto) vêm de `/api/cardapio.json`.
+Para usar outra fonte, defina `VITE_API_CARDAPIO` com a URL de um JSON no mesmo formato.
+
 ## Rodar localmente
 
 ```bash
@@ -30,7 +42,7 @@ npm run dev
 ## Configuração
 
 Em `src/data/menu.js`:
-- `PRODUTOS` / `CATEGORIAS`: cardápio;
+- cardápio: `public/api/cardapio.json`;
 - `BAIRROS`: bairros atendidos e taxa de entrega;
 - `LOJA.whatsapp`: número real (ex.: `5581999999999`) para o botão de atendente abrir o WhatsApp de verdade.
   Vazio = abre a simulação.

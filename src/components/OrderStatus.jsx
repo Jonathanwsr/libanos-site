@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
-import { PRODUTOS, brl } from '../data/menu.js'
+import { brl } from '../data/menu.js'
+import { useCatalogo } from '../catalogo.jsx'
+import { Check } from 'lucide-react'
 
 // Status simulado: avança com o tempo para demonstrar a heurística 1.
 const PASSOS = [
@@ -10,6 +12,7 @@ const PASSOS = [
 ]
 
 export default function OrderStatus({ pedido, savedCustomer, onSaveCustomer, go }) {
+  const { produtos: PRODUTOS } = useCatalogo()
   const [agora, setAgora] = useState(Date.now())
   const [salvo, setSalvo] = useState(Boolean(savedCustomer))
 
@@ -34,7 +37,7 @@ export default function OrderStatus({ pedido, savedCustomer, onSaveCustomer, go 
   return (
     <div className="page order">
       <div className="order-hero">
-        <div className="check" aria-hidden>✓</div>
+        <div className="check" aria-hidden><Check size={30} strokeWidth={3} /></div>
         <h2>Pedido #{pedido.numero} confirmado!</h2>
         <p>Obrigado, {pedido.nome.split(' ')[0]}. Acompanhe abaixo — a tela atualiza sozinha.</p>
         <small className="muted">(Demonstração: o status avança automaticamente em segundos.)</small>

@@ -1,0 +1,301 @@
+{
+  "versao": 1,
+  "atualizadoEm": "2026-11-26",
+  "categorias": [
+    {
+      "id": "esfihas-salgadas",
+      "nome": "Esfihas salgadas",
+      "descricao": "Massa fininha, assada na hora"
+    },
+    {
+      "id": "esfihas-doces",
+      "nome": "Esfihas doces",
+      "descricao": "Para fechar com chave de ouro"
+    },
+    {
+      "id": "kibes",
+      "nome": "Kibes",
+      "descricao": "Crocantes por fora, macios por dentro"
+    },
+    {
+      "id": "beirutes",
+      "nome": "Beirutes",
+      "descricao": "Pão sírio recheado e prensado"
+    },
+    {
+      "id": "combos",
+      "nome": "Combos",
+      "descricao": "Mais esfihas, menos gasto"
+    },
+    {
+      "id": "bebidas",
+      "nome": "Bebidas",
+      "descricao": "Geladas"
+    }
+  ],
+  "produtos": [
+    {
+      "id": "es-carne",
+      "categoria": "esfihas-salgadas",
+      "nome": "Esfiha de carne",
+      "descricao": "Carne moída temperada com tomate, cebola e limão.",
+      "preco": 4.5,
+      "destaque": true,
+      "imagem": "/img/es-carne.jpg",
+      "credito": {
+        "arquivo": "Sfiha aberta.jpg",
+        "autor": "E Sortica",
+        "licenca": "Domínio público"
+      }
+    },
+    {
+      "id": "es-frango",
+      "categoria": "esfihas-salgadas",
+      "nome": "Esfiha de frango",
+      "descricao": "Frango desfiado temperado.",
+      "preco": 4.5,
+      "imagem": "/img/es-frango.jpg",
+      "credito": {
+        "arquivo": "Sfiha.jpg",
+        "autor": "Carioca",
+        "licenca": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "es-frango-catupiry",
+      "categoria": "esfihas-salgadas",
+      "nome": "Esfiha de frango com catupiry",
+      "descricao": "Frango desfiado com catupiry cremoso.",
+      "preco": 5.5,
+      "destaque": true,
+      "imagem": "/img/es-frango-catupiry.jpg",
+      "credito": {
+        "arquivo": "Sfiha2.jpg",
+        "autor": "Bazel",
+        "licenca": "Domínio público"
+      }
+    },
+    {
+      "id": "es-queijo",
+      "categoria": "esfihas-salgadas",
+      "nome": "Esfiha de queijo",
+      "descricao": "Mussarela derretida.",
+      "preco": 4.5,
+      "imagem": "/img/es-queijo.jpg",
+      "credito": {
+        "arquivo": "Brazilian sfiha.jpg",
+        "autor": "Mauro Cateb",
+        "licenca": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "es-calabresa",
+      "categoria": "esfihas-salgadas",
+      "nome": "Esfiha de calabresa",
+      "descricao": "Calabresa fatiada com cebola e mussarela.",
+      "preco": 5,
+      "imagem": "/img/es-calabresa.jpg",
+      "credito": {
+        "arquivo": "Pizza de calabresa (5465192982).jpg",
+        "autor": "Monica Kaneko",
+        "licenca": "CC BY-SA 2.0"
+      }
+    },
+    {
+      "id": "es-carne-sol",
+      "categoria": "esfihas-salgadas",
+      "nome": "Esfiha de carne de sol",
+      "descricao": "Carne de sol desfiada com queijo coalho.",
+      "preco": 6,
+      "imagem": "/img/es-carne-sol.jpg",
+      "credito": {
+        "arquivo": "Lahmacun.jpg",
+        "autor": "Rainer Zenz",
+        "licenca": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "es-pizza",
+      "categoria": "esfihas-salgadas",
+      "nome": "Esfiha de pizza",
+      "descricao": "Presunto, mussarela, tomate e orégano.",
+      "preco": 5,
+      "imagem": "/img/es-pizza.jpg",
+      "credito": {
+        "arquivo": "Safeha, a Lebanese dish of Baalbek, 2017.jpg",
+        "autor": "Bdx",
+        "licenca": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "ed-chocolate",
+      "categoria": "esfihas-doces",
+      "nome": "Esfiha de chocolate",
+      "descricao": "Chocolate ao leite cremoso.",
+      "preco": 5.5,
+      "imagem": "/img/ed-chocolate.jpg",
+      "credito": {
+        "arquivo": "Pain au chocolat Luc Viatour.jpg",
+        "autor": "Luc Viatour",
+        "licenca": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "ed-romeu",
+      "categoria": "esfihas-doces",
+      "nome": "Esfiha romeu e julieta",
+      "descricao": "Goiabada com queijo.",
+      "preco": 5.5,
+      "imagem": "/img/ed-romeu.jpg",
+      "credito": {
+        "arquivo": "Queijo minas e goiabada.jpg",
+        "autor": "Cataleirxs",
+        "licenca": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "ed-banana",
+      "categoria": "esfihas-doces",
+      "nome": "Esfiha de banana com canela",
+      "descricao": "Banana, açúcar e canela.",
+      "preco": 5,
+      "imagem": "/img/ed-banana.jpg",
+      "credito": {
+        "arquivo": "Banana-Cinnamon Muffins.jpg",
+        "autor": "Roozitaa",
+        "licenca": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "kb-frito",
+      "categoria": "kibes",
+      "nome": "Kibe frito",
+      "descricao": "Tradicional, crocante por fora.",
+      "preco": 5,
+      "imagem": "/img/kb-frito.jpg",
+      "credito": {
+        "arquivo": "Fried kibbeh.JPG",
+        "autor": "haitham alfalah",
+        "licenca": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "kb-queijo",
+      "categoria": "kibes",
+      "nome": "Kibe recheado com queijo",
+      "descricao": "Kibe frito recheado com mussarela.",
+      "preco": 6,
+      "imagem": "/img/kb-queijo.jpg",
+      "credito": {
+        "arquivo": "Kibbeh3.jpg",
+        "autor": "Bazel",
+        "licenca": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "bt-carne",
+      "categoria": "beirutes",
+      "nome": "Beirute de carne",
+      "descricao": "Pão sírio, filé, queijo, alface e tomate.",
+      "preco": 28,
+      "imagem": "/img/bt-carne.jpg",
+      "credito": {
+        "arquivo": "Beirute sande.jpg",
+        "autor": "E Sortica",
+        "licenca": "Domínio público"
+      }
+    },
+    {
+      "id": "bt-frango",
+      "categoria": "beirutes",
+      "nome": "Beirute de frango",
+      "descricao": "Pão sírio, frango, queijo, alface e tomate.",
+      "preco": 25,
+      "imagem": "/img/bt-frango.jpg",
+      "credito": {
+        "arquivo": "Hot toasted pita sandwich.jpg",
+        "autor": "jeffreyw",
+        "licenca": "CC BY 2.0"
+      }
+    },
+    {
+      "id": "cb-10",
+      "categoria": "combos",
+      "nome": "Combo 10 esfihas",
+      "descricao": "10 esfihas salgadas sortidas (sabores tradicionais).",
+      "preco": 40,
+      "destaque": true,
+      "imagem": "/img/cb-10.jpg",
+      "credito": {
+        "arquivo": "Empanadas argentinas llamadas árabes, similares a las Sfiha cerradas.JPG",
+        "autor": "Carlosdisogra",
+        "licenca": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "cb-20",
+      "categoria": "combos",
+      "nome": "Combo família 20 esfihas + refri 2L",
+      "descricao": "20 esfihas sortidas e 1 refrigerante de 2 litros.",
+      "preco": 85,
+      "imagem": "/img/cb-20.jpg",
+      "credito": {
+        "arquivo": "Esfirra aberta em Ponta Grossa.jpg",
+        "autor": "Simplus Menegati",
+        "licenca": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "bb-lata",
+      "categoria": "bebidas",
+      "nome": "Refrigerante lata 350ml",
+      "descricao": "Coca-Cola, Guaraná ou Fanta.",
+      "preco": 6,
+      "imagem": "/img/bb-lata.jpg",
+      "credito": {
+        "arquivo": "Lata de Guaraná Antarctica.jpg",
+        "autor": "Cabeza2000",
+        "licenca": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "bb-2l",
+      "categoria": "bebidas",
+      "nome": "Refrigerante 2L",
+      "descricao": "Coca-Cola ou Guaraná.",
+      "preco": 14,
+      "imagem": "/img/bb-2l.jpg",
+      "credito": {
+        "arquivo": "Garrafa pet de Guaraná Antártica em um cano 01.jpg",
+        "autor": "Parzeus",
+        "licenca": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "bb-suco",
+      "categoria": "bebidas",
+      "nome": "Suco natural 500ml",
+      "descricao": "Laranja, maracujá ou acerola.",
+      "preco": 8,
+      "imagem": "/img/bb-suco.jpg",
+      "credito": {
+        "arquivo": "Orange juice 1 edit1.jpg",
+        "autor": "USDA (edição: Arad)",
+        "licenca": "Domínio público"
+      }
+    },
+    {
+      "id": "bb-agua",
+      "categoria": "bebidas",
+      "nome": "Água mineral 500ml",
+      "descricao": "Com ou sem gás.",
+      "preco": 3.5,
+      "imagem": "/img/bb-agua.jpg",
+      "credito": {
+        "arquivo": "Water bottle in room.jpg",
+        "autor": "LilGoober4u",
+        "licenca": "CC BY-SA 4.0"
+      }
+    }
+  ]
+}

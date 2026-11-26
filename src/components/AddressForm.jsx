@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { BAIRROS, brl } from '../data/menu.js'
+import { LocateFixed } from 'lucide-react'
 
 const CIDADE = 'Vitória de Santo Antão'
 const UF = 'PE'
@@ -173,7 +174,7 @@ export default function AddressForm({ value, onChange, errors }) {
   return (
     <div className="address">
       <button type="button" className="btn btn-outline" onClick={usarLocalizacao}>
-        📍 Usar minha localização
+        <LocateFixed size={18} /> Usar minha localização
       </button>
       {geoMsg && <p className={'msg msg-' + geoMsg.tipo}>{geoMsg.txt}</p>}
 

@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { LOJA } from '../data/menu.js'
+import { SendHorizontal, RotateCcw } from 'lucide-react'
 
 const LINK = typeof window !== 'undefined' ? window.location.origin : ''
 
 const boasVindas = () => ({
   de: 'loja',
   texto:
-    `Olá! 👋 Bem-vindo(a) à *${LOJA.nome}*.\n\n` +
-    `Para pedir rapidinho, use nosso cardápio:\n🔗 ${LINK}\n\n` +
+    `Olá! Bem-vindo(a) à *${LOJA.nome}*.\n\n` +
+    `Para pedir rapidinho, use nosso cardápio:\n${LINK}\n\n` +
     `Prefere falar com uma pessoa?\n*Digite 1* para falar com um atendente.`,
 })
 
@@ -28,7 +29,7 @@ export default function WhatsAppDemo({ go }) {
     if (modoHumano) {
       return {
         de: 'loja',
-        texto: 'Anotado! 📝 Um atendente já está vendo sua mensagem e vai continuar seu pedido por aqui mesmo.',
+        texto: 'Anotado! Um atendente já está vendo sua mensagem e vai continuar seu pedido por aqui mesmo.',
       }
     }
     if (t === '1' || t.includes('atendente') || t.includes('pessoa') || t.includes('humano')) {
@@ -36,7 +37,7 @@ export default function WhatsAppDemo({ go }) {
       return {
         de: 'loja',
         texto:
-          '👩‍🍳 Certo! Você será atendido(a) por uma pessoa da nossa equipe.\n\n' +
+          'Certo! Você será atendido(a) por uma pessoa da nossa equipe.\n\n' +
           'Pode mandar seu pedido do seu jeito, por texto ou áudio. Ex.: "10 esfihas de carne e 1 guaraná, entrega no Centro".\n\n' +
           '(Se mudar de ideia, o cardápio continua aqui: ' + LINK + ')',
       }
@@ -85,7 +86,7 @@ export default function WhatsAppDemo({ go }) {
             <strong>{LOJA.nome}</strong>
             <small>{modoHumano ? 'Atendente online' : 'Conta comercial'}</small>
           </div>
-          <button className="wa-reset" onClick={reiniciar} title="Reiniciar conversa">↺</button>
+          <button className="wa-reset" onClick={reiniciar} title="Reiniciar conversa"><RotateCcw size={18} /></button>
         </div>
         <div className="wa-chat">
           {msgs.length === 0 && <p className="wa-hint">Toque em “Oi” ou escreva uma mensagem abaixo.</p>}
@@ -114,7 +115,7 @@ export default function WhatsAppDemo({ go }) {
           }}
         >
           <input value={txt} onChange={(e) => setTxt(e.target.value)} placeholder="Mensagem" aria-label="Mensagem" />
-          <button type="submit" aria-label="Enviar">➤</button>
+          <button type="submit" aria-label="Enviar"><SendHorizontal size={18} /></button>
         </form>
       </div>
     </div>
